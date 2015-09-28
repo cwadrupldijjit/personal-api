@@ -1,3 +1,4 @@
+var url = require('url');
 var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
@@ -21,6 +22,13 @@ var port = 8794,
 		],
 		occupations: [
 			{
+				company: 'Cogent Works',
+				department: 'Auto Rx',
+				position: 'HD representative',
+				beginDate: new Date('July 15, 2015'),
+				endDate: new Date('February 01, 2015')
+			},
+			{
 				company: 'Mitchell International',
 				department: 'Mitchell Pharmacy Solutions/Auto Rx',
 				position: 'Customer Service Support, level 2',
@@ -32,34 +40,29 @@ var port = 8794,
 				department: 'Mitchell Pharmacy Solutions/Auto Rx',
 				position: 'Customer Service Support, level 1',
 				beginDate: new Date('February 01, 2015'),
-				endDate: new Date('July 01, 2015')
-			},
-			{
-				company: 'Cogent Works',
-				department: 'Auto Rx',
-				position: 'HD representative',
-				beginDate: new Date('July 15, 2015'),
-				endDate: new Date('February 01, 2015')
+				endDate: new Date('July 01, 2014')
 			},
 			{
 				company: 'Cogent Works',
 				department: 'Transportation (National MedTrans Network)',
 				position: 'Customer Service',
-				beginDate: new Date('March 03, 2015'),
-				endDate: new Date('July 15, 2015')
+				beginDate: new Date('March 03, 2014'),
+				endDate: new Date('July 15, 2014')
 			}
 		]
 	}
 
 app.use(bodyParser.json());
 
-app.use(function(res, req, next) {
+app.use(function(req, res, next) {
 	res.header('Access-Control-Allow-Origin', '*');
 	res.header('Access-Control-Allow-Methods', 'OPTIONS, GET, POST');
 	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 	
 	next();
 });
+
+
 
 app.get('/', function(req, res) {
 	
@@ -78,6 +81,7 @@ app.get('/hobbies', function(req, res) {
 });
 
 app.get('/occupations', function(req, res) {
+	console.log(req.query);
 	res.json(meData.occupations);
 });
 
@@ -93,6 +97,8 @@ app.get('/occupations/latest', function(req, res) {
 	res.json(latestJob);
 });
 
+
+
 app.post('/name', function(req, res) {
 	var newName = req.body;
 	
@@ -104,6 +110,9 @@ app.post('/location', function(req, res) {
 	
 	meData.location = newLocation;
 });
+
+
+
 
 app.listen(port, function() {
 	var host = 'localhost';

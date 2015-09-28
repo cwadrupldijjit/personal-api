@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en" ng-app="MainApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>Node Practice 2</title>
+	</head>
+	
+	<body ng-controller="MainController as mc">
+		<div class="test-container">
+			<div class="test-getName">
+				<button ng-click="mc.getData('name')">getName</button>
+				<p>{{ mc.meData.name }}</p>
+			</div>
+			
+			<div class="test-getLocation">
+				<button ng-click="mc.getData('location')">getLocation</button>
+				<p>{{ mc.meData.location }}</p>
+			</div>
+			
+			<div class="test-getHobbies">
+				<button ng-click="mc.getData('hobbies')">getHobbies</button>
+				<p>{{ mc.meData.hobbies }}</p>
+			</div>
+			
+			<div class="test-getOccupations">
+				<button ng-click="mc.getData('occupations')">getOccupations</button>
+				<div ng-repeat="occupation in mc.meData.occupations">
+					<p>{{ occupation.company }}</p>
+					<p>{{ occupation.department }}</p>
+					<p>{{ occupation.position }}</p>
+					<p>Begin Date: {{ occupation.beginDate | date: 'MM/dd/yyyy' }}</p>
+					<p>End Date: {{ occupation.endDate | date: 'MM/dd/yyyy' }}</p>
+					<hr ng-if="!$last">
+				</div>
+			</div>
+			
+			<div class="test-getLastJob">
+				<button ng-click="mc.getData('occupations/latest')">getLastJob</button>
+				<div ng-if="mc.meData.latestJob">
+					<p>{{ mc.meData.latestJob.company }}</p>
+					<p>{{ mc.meData.latestJob.department }}</p>
+					<p>{{ mc.meData.latestJob.position }}</p>
+					<p>Begin Date: {{ mc.meData.latestJob.beginDate | date: 'MM/dd/yyyy' }}</p>
+					<p>End Date: {{ mc.meData.latestJob.endDate | date: 'MM/dd/yyyy' }}</p>
+				</div>
+			</div>
+		</div>
+		
+		<script src="../itunes/bower_components/angular/angular.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/controller.js"></script>
+		<script src="js/service.js"></script>
+	</body>
+</html>
