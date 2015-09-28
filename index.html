@@ -20,7 +20,7 @@
 			
 			<div class="test-getHobbies">
 				<button ng-click="mc.getData('hobbies')">getHobbies</button>
-				<p>{{ mc.meData.hobbies }}</p>
+				<p ng-repeat="hobby in mc.meData.hobbies">{{ hobby }}</p>
 			</div>
 			
 			<div class="test-getOccupations">
