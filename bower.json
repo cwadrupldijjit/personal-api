@@ -1,0 +1,31 @@
+{
+  "name": "personal-api",
+  "version": ".3.0",
+  "homepage": "https://github.com/cwadrupldijjit/personal-api",
+  "authors": [
+    "Sam Skeen <sskeen@sskeendevelopment.onmicrosoft.com>"
+  ],
+  "description": "personal-api project for DevMountain",
+  "main": "index.html",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "node",
+    "api",
+    "server",
+    "angular"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "~0.11.1"
+  }
+}

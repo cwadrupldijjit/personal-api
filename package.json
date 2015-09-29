@@ -1,0 +1,31 @@
+{
+  "name": "personal-api",
+  "version": "1.0.0",
+  "description": "personal-api project for DevMountain",
+  "main": "server/server.js",
+  "dependencies": {
+    "body-parser": "^1.14.0",
+    "fs": "^0.0.2",
+    "express": "^4.13.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cwadrupldijjit/personal-api.git"
+  },
+  "keywords": [
+    "node",
+    "api",
+    "server",
+    "angular"
+  ],
+  "author": "Samuel Skeen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cwadrupldijjit/personal-api/issues"
+  },
+  "homepage": "https://github.com/cwadrupldijjit/personal-api#readme"
+}
