@@ -100,15 +100,15 @@ app.get('/occupations/latest', function(req, res) {
 
 
 app.post('/name', function(req, res) {
-	var newName = req.body;
-	
-	meData.name = newName;
+	meData.name = req.body.change;
 });
 
 app.post('/location', function(req, res) {
-	var newLocation = req.body;
-	
-	meData.location = newLocation;
+	meData.location = req.body;
+});
+
+app.post('/hobbies', function(req, res) {
+	meData.hobbies.push(req.body);
 });
 
 

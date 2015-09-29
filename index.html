@@ -4,27 +4,85 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Node Practice 2</title>
+		
+		<link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+		<link rel="stylesheet" href="styles.css">
 	</head>
 	
 	<body ng-controller="MainController as mc">
 		<div class="test-container">
+			<div class="test-postName pull-right">
+				<form>
+					<md-input-container>
+						<label for="mc.newName">New name</label>
+						<input type="text" ng-model="mc.newName" required>
+					</md-input-container>
+					<input type="submit" ng-click="mc.updateData('name')" md-ink class="md-button md-primary md-raised">
+				</form>
+			</div>
 			<div class="test-getName">
-				<button ng-click="mc.getData('name')">getName</button>
+				<md-button class="md-primary md-raised" ng-click="mc.getData('name')">getName</md-button>
 				<p>{{ mc.meData.name }}</p>
 			</div>
 			
+			
+			<div class="test-postLocation pull-right">
+				<form>
+					<md-input-container>
+						<label for="mc.newLocation">New location</label>
+						<input type="text" ng-model="mc.newLocation" required>
+					</md-input-container>
+					<input type="submit" ng-click="mc.updateData('location')" md-ink class="md-button md-primary md-raised">
+				</form>
+			</div>
 			<div class="test-getLocation">
-				<button ng-click="mc.getData('location')">getLocation</button>
+				<md-button class="md-primary md-raised" ng-click="mc.getData('location')">getLocation</md-button>
 				<p>{{ mc.meData.location }}</p>
 			</div>
 			
+			
+			<div class="test-postHobby pull-right">
+				<form>
+					<md-input-container>
+						<label for="mc.newHobby">New hobby</label>
+						<input type="text" ng-model="mc.newHobby" required>
+					</md-input-container>
+					<input type="submit" ng-click="mc.updateData('hobby')" md-ink class="md-button md-primary md-raised">
+				</form>
+			</div>
 			<div class="test-getHobbies">
-				<button ng-click="mc.getData('hobbies')">getHobbies</button>
+				<md-button class="md-primary md-raised" ng-click="mc.getData('hobbies')">getHobbies</md-button>
 				<p ng-repeat="hobby in mc.meData.hobbies">{{ hobby }}</p>
 			</div>
 			
+			
+			<div class="test-postJob pull-right">
+				<form>
+					<md-input-container>
+						<label for="mc.newJob.company">Company</label>
+						<input type="text" ng-model="mc.newJob.company" required>
+					</md-input-container>
+					<md-input-container>
+						<label for="mc.newJob.department">Department</label>
+						<input type="text" ng-model="mc.newJob.department" required>
+					</md-input-container>
+					<md-input-container>
+						<label for="mc.newJob.position">Position</label>
+						<input type="text" ng-model="mc.newJob.position" required>
+					</md-input-container>
+					<md-input-container>
+						<label for="mc.newJob.beginDate">Begin Date</label>
+						<input type="text" ng-model="mc.newJob.beginDate" required>
+					</md-input-container>
+					<md-input-container>
+						<label for="mc.newJob.endDate">End Date (leave blank if current)</label>
+						<input type="text" ng-model="mc.newJob.endDate" required>
+					</md-input-container>
+					<input type="submit" ng-click="mc.updateData('occupation')" md-ink class="md-button md-primary md-raised">
+				</form>
+			</div>
 			<div class="test-getOccupations">
-				<button ng-click="mc.getData('occupations')">getOccupations</button>
+				<md-button class="md-primary md-raised" ng-click="mc.getData('occupations')">getOccupations</md-button>
 				<div ng-repeat="occupation in mc.meData.occupations">
 					<p>{{ occupation.company }}</p>
 					<p>{{ occupation.department }}</p>
@@ -35,8 +93,9 @@
 				</div>
 			</div>
 			
+			
 			<div class="test-getLastJob">
-				<button ng-click="mc.getData('occupations/latest')">getLastJob</button>
+				<md-button class="md-primary md-raised" ng-click="mc.getData('occupations/latest')">getLastJob</md-button>
 				<div ng-if="mc.meData.latestJob">
 					<p>{{ mc.meData.latestJob.company }}</p>
 					<p>{{ mc.meData.latestJob.department }}</p>
@@ -48,6 +107,9 @@
 		</div>
 		
 		<script src="../itunes/bower_components/angular/angular.js"></script>
+		<script src="bower_components/angular-material/angular-material.js"></script>
+		<script src="bower_components/angular-animate/angular-animate.js"></script>
+		<script src="bower_components/angular-aria/angular-aria.js"></script>
 		<script src="js/app.js"></script>
 		<script src="js/controller.js"></script>
 		<script src="js/service.js"></script>

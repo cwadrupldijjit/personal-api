@@ -4,7 +4,7 @@ app.controller('MainController', ['MainService', function(MainService) {
 	vm.meData = {};
 	
 	vm.getData = function(param) {
-		MainService.getName(param).then(function(data) {
+		MainService.getData(param).then(function(data) {
 			switch (param)
 			{ 
 				case 'name': vm.meData.name = data; break;
@@ -14,5 +14,13 @@ app.controller('MainController', ['MainService', function(MainService) {
 				case 'occupations/latest': vm.meData.latestJob = data; break;
 			}
 		})
-	}
+	};
+	
+	vm.updateData = function(field) {
+		switch(field)
+		{
+			case 'name': MainService.postData(field, vm.newName); break;
+			
+		}
+	};
 }]);
