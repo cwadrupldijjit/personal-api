@@ -12,7 +12,7 @@
 	<body ng-controller="MainController as mc">
 		<div class="test-container">
 			<div class="test-postName pull-right">
-				<form>
+				<form novalidate>
 					<md-input-container>
 						<label for="mc.newName">New name</label>
 						<input type="text" ng-model="mc.newName" required>
@@ -51,16 +51,17 @@
 				</form>
 			</div>
 			<div class="test-getHobbies">
-				<md-button class="md-primary md-raised" ng-click="mc.getData('hobbies')">getHobbies</md-button>
+				<md-button class="md-primary md-raised getHobbies-desc" ng-click="mc.getData('hobbies?orderBy=desc')">getHobbies_Desc</md-button>
+				<md-button class="md-primary md-raised getHobbies-asc" ng-click="mc.getData('hobbies?orderBy=asc')">getHobbies_Asc</md-button>
 				<p ng-repeat="hobby in mc.meData.hobbies track by $index">{{ hobby }}</p>
 			</div>
 			
 			
 			<div class="test-postJob pull-right">
-				<form>
+				<form novalidate>
 					<md-input-container>
 						<label for="mc.newJob.company">Company</label>
-						<input type="text" ng-model="mc.newJob.company" required>
+						<input type="text" ng-model="mc.newJob.company" ng-required formnovalidate>
 					</md-input-container>
 					<md-input-container>
 						<label for="mc.newJob.department">Department</label>
@@ -83,7 +84,7 @@
 			</div>
 			<div class="test-getOccupations">
 				<md-button class="md-primary md-raised" ng-click="mc.getData('occupations')">getOccupations</md-button>
-				<div ng-repeat="occupation in mc.meData.occupations track by $index">
+				<div ng-repeat="occupation in mc.meData.occupations">
 					<p>{{ occupation.company }}</p>
 					<p>{{ occupation.department }}</p>
 					<p>{{ occupation.position }}</p>

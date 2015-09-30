@@ -5,6 +5,11 @@ app.controller('MainController', ['MainService', '$timeout', function(MainServic
 	
 	vm.getData = function(param) {
 		MainService.getData(param).then(function(data) {
+			
+			if (param.split('hobbies')[0] == '') {
+				param = 'hobbies';
+			}
+			
 			switch (param)
 			{ 
 				case 'name': vm.meData.name = data; break;
@@ -13,6 +18,11 @@ app.controller('MainController', ['MainService', '$timeout', function(MainServic
 				case 'occupations': vm.meData.occupations = data; break;
 				case 'occupations/latest': vm.meData.latestJob = data; break;
 			}
+		
+			// var test = param.split('hobbies');
+			// if (param.split('hobbies')[0] === '') {
+			// 	vm.meData.hobbies = data;
+			// }
 		})
 	};
 	

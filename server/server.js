@@ -76,6 +76,16 @@ app.get('/location', function(req, res) {
 	res.json(meData.location);
 });
 
+app.get('/hobbies?*', function(req, res) {
+	if (req.query.orderBy === 'desc') {
+		var resultDesc = meData.hobbies.sort();
+		res.json(resultDesc);
+	} else {
+		var resultAsc = meData.hobbies.sort().reverse();
+		res.json(resultAsc);
+	}
+});
+
 app.get('/hobbies', function(req, res) {
 	res.json(meData.hobbies);
 });
