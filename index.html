@@ -83,7 +83,8 @@
 				</form>
 			</div>
 			<div class="test-getOccupations">
-				<md-button class="md-primary md-raised" ng-click="mc.getData('occupations')">getOccupations</md-button>
+				<md-button class="md-primary md-raised" ng-click="mc.getData('occupations?orderBy=desc')">getOccupations_Desc</md-button>
+				<md-button class="md-primary md-raised" ng-click="mc.getData('occupations?orderBy=asc')">getOccupations_Asc</md-button>
 				<div ng-repeat="occupation in mc.meData.occupations">
 					<p>{{ occupation.company }}</p>
 					<p>{{ occupation.department }}</p>

@@ -8,6 +8,8 @@ app.controller('MainController', ['MainService', '$timeout', function(MainServic
 			
 			if (param.split('hobbies')[0] == '') {
 				param = 'hobbies';
+			} else if (param.split('occupations')[0] == '') {
+				param = 'occupations';
 			}
 			
 			switch (param)

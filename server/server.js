@@ -25,7 +25,7 @@ var port = 8794,
 				company: 'Cogent Works',
 				department: 'Auto Rx',
 				position: 'HD representative',
-				beginDate: new Date('July 15, 2015'),
+				beginDate: new Date('July 15, 2014'),
 				endDate: new Date('February 01, 2015')
 			},
 			{
@@ -88,6 +88,30 @@ app.get('/hobbies?*', function(req, res) {
 
 app.get('/hobbies', function(req, res) {
 	res.json(meData.hobbies);
+});
+
+app.get('/occupations?*', function(req, res) {
+	if (req.query.orderBy === 'desc') {
+		var resultDesc = meData.occupations.sort(function(a, b) {
+			if (a.beginDate.getTime() > b.beginDate.getTime()) {
+				return 1;
+			} else if (a.beginDate.getTime() < b.beginDate.getTime()) {
+				return -1;
+			} else return 0;
+		});
+		
+		res.json(resultDesc);
+	} else {
+		var resultAsc = meData.occupations.sort(function(a, b) {
+			if (a.beginDate.getTime() > b.beginDate.getTime()) {
+				return 1;
+			} else if (a.beginDate.getTime() < b.beginDate.getTime()) {
+				return -1;
+			} else return 0;
+		}).reverse();
+		
+		res.json(resultAsc);
+	}
 });
 
 app.get('/occupations', function(req, res) {
