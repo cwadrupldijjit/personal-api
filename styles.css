@@ -1,0 +1,10 @@
+.pull-right {
+	float: right;
+	
+	width: 50%;
+}
+
+.test-container > div {
+	min-height: 125px; 
+	
+}

@@ -81,7 +81,6 @@ app.get('/hobbies', function(req, res) {
 });
 
 app.get('/occupations', function(req, res) {
-	console.log(req.query);
 	res.json(meData.occupations);
 });
 
@@ -104,11 +103,18 @@ app.post('/name', function(req, res) {
 });
 
 app.post('/location', function(req, res) {
-	meData.location = req.body;
+	meData.location = req.body.change;
 });
 
 app.post('/hobbies', function(req, res) {
-	meData.hobbies.push(req.body);
+	meData.hobbies.push(req.body.change);
+});
+
+app.post('/occupations', function(req, res) {
+	req.body.change.beginDate = new Date(req.body.change.beginDate);
+	req.body.change.endDate = new Date(req.body.change.endDate);
+	
+	meData.occupations.push(req.body.change);
 });
 
 

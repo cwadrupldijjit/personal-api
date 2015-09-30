@@ -47,12 +47,12 @@
 						<label for="mc.newHobby">New hobby</label>
 						<input type="text" ng-model="mc.newHobby" required>
 					</md-input-container>
-					<input type="submit" ng-click="mc.updateData('hobby')" md-ink class="md-button md-primary md-raised">
+					<input type="submit" ng-click="mc.updateData('hobbies')" md-ink class="md-button md-primary md-raised">
 				</form>
 			</div>
 			<div class="test-getHobbies">
 				<md-button class="md-primary md-raised" ng-click="mc.getData('hobbies')">getHobbies</md-button>
-				<p ng-repeat="hobby in mc.meData.hobbies">{{ hobby }}</p>
+				<p ng-repeat="hobby in mc.meData.hobbies track by $index">{{ hobby }}</p>
 			</div>
 			
 			
@@ -72,18 +72,18 @@
 					</md-input-container>
 					<md-input-container>
 						<label for="mc.newJob.beginDate">Begin Date</label>
-						<input type="text" ng-model="mc.newJob.beginDate" required>
+						<input type="date" ng-model="mc.newJob.beginDate" required>
 					</md-input-container>
 					<md-input-container>
 						<label for="mc.newJob.endDate">End Date (leave blank if current)</label>
-						<input type="text" ng-model="mc.newJob.endDate" required>
+						<input type="date" ng-model="mc.newJob.endDate">
 					</md-input-container>
-					<input type="submit" ng-click="mc.updateData('occupation')" md-ink class="md-button md-primary md-raised">
+					<input type="submit" ng-click="mc.updateData('occupations')" md-ink class="md-button md-primary md-raised">
 				</form>
 			</div>
 			<div class="test-getOccupations">
 				<md-button class="md-primary md-raised" ng-click="mc.getData('occupations')">getOccupations</md-button>
-				<div ng-repeat="occupation in mc.meData.occupations">
+				<div ng-repeat="occupation in mc.meData.occupations track by $index">
 					<p>{{ occupation.company }}</p>
 					<p>{{ occupation.department }}</p>
 					<p>{{ occupation.position }}</p>
